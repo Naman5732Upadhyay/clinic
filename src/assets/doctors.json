@@ -1,0 +1,31 @@
+[
+    {
+      "id":1,
+      "name": "Dr. Anil Kumar Sharma",
+      "qualification": "MBBS, MD (Internal Medicine)",
+      "image_url": "https://mighty.tools/mockmind-api/content/human/65.jpg",
+      "description": "An experienced physician specializing in internal medicine with over 15 years of experience in treating chronic illnesses."
+    },
+    {
+      "id":2,
+      "name": "Dr. Priya Mehra",
+      "qualification": "MBBS, MS (Ophthalmology), FICO",
+      "image_url": "https://mighty.tools/mockmind-api/content/human/44.jpg",
+      "description": "A renowned eye surgeon with expertise in cataract and refractive surgeries."
+    },
+    {
+      "id":3,
+      "name": "Dr. Ramesh Chand Gupta",
+      "qualification": "MBBS, MD (Pediatrics)",
+      "image_url": "https://mighty.tools/mockmind-api/content/human/57.jpg",
+      "description": "A compassionate pediatrician who has been providing care for children for over a decade."
+    },
+    {
+      "id":4,
+      "name": "Dr. Lakshmi Narayan Iyer",
+      "qualification": "BDS, MDS (Orthodontics)",
+      "image_url": "https://mighty.tools/mockmind-api/content/human/55.jpg",
+      "description": "A skilled orthodontist known for creating beautiful smiles using modern dental techniques."
+    }
+  ]
+  

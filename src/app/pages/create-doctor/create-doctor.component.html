@@ -1,0 +1,47 @@
+<div class="box-outer h-75 d-flex flex-column">
+    <div class="modal-header p-2 ps-4 d-flex justify-content-between">
+        <div>Create Doctor</div>
+        <div style="cursor: pointer;" (click)="closepoppup()"><img src="../../../assets/icons/close-icon.svg"></div>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="doctorForm" (ngSubmit)="createDoctor()">
+            <div class="d-flex flex-column">
+                <div class="d-flex gap-3 p-2">
+                    <div class="fill-one">
+                        <div>Doctor name</div>
+                        <input type="text" class="w-100" formControlName="name">
+                        <ng-container>
+                            <small *ngIf="doctorForm.get('name')?.invalid && doctorForm.get('name')?.touched">Name is
+                                required</small>
+                        </ng-container>
+                    </div>
+                    <div class="fill-one">
+                        <div>Qualification</div>
+                        <input type="text" class="w-100" formControlName="qualification">
+                        <ng-container>
+                            <small
+                                *ngIf="doctorForm.get('qualification')?.invalid && doctorForm.get('qualification')?.touched">Qualification
+                                is required</small>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="fill-one p-2">
+                    <div>Image URL</div>
+                    <input type="text" class="w-100" formControlName="image_url">
+                </div>
+                <div class="p-2">
+                    <div>Description</div>
+                    <textarea class="w-100" formControlName="description"></textarea>
+                    <ng-container>
+                        <small
+                            *ngIf="doctorForm.get('description')?.invalid && doctorForm.get('description')?.touched">Description
+                            is required</small>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="modal-footer"><button class="btn btn-primary create-btn" type="submit">Create Doctor</button>
+            </div>
+        </form>
+    </div>
+</div>

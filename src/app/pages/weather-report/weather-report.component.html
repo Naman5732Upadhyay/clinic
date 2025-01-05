@@ -1,0 +1,43 @@
+<div class="weather-btn" style="cursor: pointer;" (click)="openModal(weatherdetails)">
+  {{currentWeatherData?.name}} , {{currentWeatherData?.main?.temp_max | kelvinToCelsius}}
+</div>
+<ng-template #weatherdetails>
+  <div class="box-outer">
+    <div class="list-header p-3 d-flex justify-content-between">
+      <div>Forecast for Noida</div>
+      <div style="cursor: pointer;" (click)="closemodal()"><img src="../../../assets/icons/close-icon.svg"></div>
+    </div>
+    <hr  style="margin: 0px;">
+    <div class="d-flex flex-column " *ngIf="hourleyForcast && hourleyForcast.length > 0">
+         <ng-container *ngFor="let day of hourleyForcast">
+            <div class="d-flex px-3">
+               <div class="gridunitdate">
+                <div class="text-gray">Date/Time</div>
+                <div class="text-bold">{{day.date_epoch * 1000 | date: 'dd/MM/yyyy hh:mm:ss a'}}</div>
+               </div>
+               <div class="gridunit">
+                <div class="text-gray">Weather</div>
+                <div class="text-bold">{{day.day.condition.text}}</div>
+               </div>
+               <div class="gridunit">
+                <div class="text-gray">Temprature</div>
+                <div class="text-bold">{{day.day.avgtemp_c}} C</div>
+               </div>
+               <div class="gridunit">
+                <div class="text-gray">Humidity</div>
+                <div class="text-bold">{{day.day.avghumidity}}</div>
+               </div>
+               <div class="gridunit">
+                <div class="text-gray">Min Temprature</div>
+                <div class="text-bold">{{day.day.mintemp_c}} C</div>
+               </div>
+               <div class="gridunit">
+                <div class="text-gray">Max Temprature</div>
+                <div class="text-bold">{{day.day.maxtemp_c}} C</div>
+               </div>
+            </div>
+            <hr style="margin: 0px;">
+         </ng-container>
+    </div>
+  </div>
+</ng-template>

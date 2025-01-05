@@ -1,0 +1,25 @@
+<div class="box-outer h-100 pb-1 d-flex flex-column">
+   <div class="b-bottom d-flex justify-content-between list-head">
+     <div>Doctors List</div>
+     <div class="text-end pe-1" style="cursor: pointer;" (click)="addnewDoctor(addDoctorModal)">
+        <img class="plus-icon" src="../../../assets/icons/add-light-blue.svg" alt="">
+     </div>
+   </div>
+   <div class="list-container" *ngIf="doctorList && doctorList.length > 0">
+        <div *ngFor="let doctor of doctorList;let i=index" class="b-bottom d-flex justify-content-between" [ngStyle]="(selectedDocindex !== undefined || selectedDocindex !== null) && selectedDocindex === doctor.id ? { 'background-color': 'var(--bg-darkBlue)' } : { 'background-color': '' }" (click)="selcectDoctor(doctor)">
+            <div >{{doctor?.name}}</div>
+            <div class="text-end" (click)="deleteDoc(doctor)">
+                <img 
+                class="delete-btn" 
+                src="../../../assets/icons/delete-default.svg" 
+                alt="Example SVG">
+            </div>
+        </div>
+   </div>
+   <div class="list-container d-flex align-items-center justify-content-center"  *ngIf="!doctorList || doctorList.length === 0">
+       <div class="text-nofound">No doctors available.</div>
+   </div>
+</div>
+<ng-template #addDoctorModal>
+    <app-create-doctor (createnewDoctor)="createDoctor($event)" (closeModal)="closemodal()"></app-create-doctor>
+</ng-template>

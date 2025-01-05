@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+:root {
+    --bg-light: #FFFFFF;
+    --bg-darkBlue:#3355EC;
+  }
+
+body {
+    font-family: Work Sans;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #c0bfbf;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px none;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+
+.box-outer {
+    background: var(--bg-light);
+    border: 1px solid #EEEEEE;
+    border-radius: 8px;
+}

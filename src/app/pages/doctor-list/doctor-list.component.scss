@@ -1,0 +1,34 @@
+:host{
+    display: block;
+    height: calc(100%);
+}
+.list-container{
+    flex: 1;
+}
+.text-nofound{
+    color: #A9A9A9;
+    line-height: 28.15px;
+    size: 24px;
+ }
+.b-bottom{
+    border-bottom: 1px solid #A9A9A9; 
+    padding: 10px 20px 10px 20px;
+}
+.list-head{
+    border-radius: 8px 8px 0px 0px;
+}
+.list-head:hover{
+   background-color: #E6EAF8;
+}
+.delete-btn{
+    content: url("../../../assets/icons/delete-default.svg");
+}
+.delete-btn:hover{
+    content: url("../../../assets/icons/delete-red.svg");
+}
+.plus-icon{
+    content: url("../../../assets/icons/add-light-blue.svg");
+}
+.plus-icon:hover{
+    content: url("../../../assets/icons/add-blue.svg");
+}

@@ -1,0 +1,24 @@
+input{
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 5px;
+}
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+.create-btn{
+    width: 165px;
+    height: 35px;
+    background-color: var(--bg-darkBlue);
+}
+small { 
+    color: red;
+    font-size:12px 
+}
+.btn-primary{
+   background-color: var(--bg-darkBlue);
+}
+.fill-one{
+    flex: 1;
+}

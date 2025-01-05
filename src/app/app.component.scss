@@ -1,0 +1,16 @@
+:host{
+    display: block;
+    height: 100dvh;
+}
+.notification{
+    background-color: #099B1E;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 400;
+    size: 16px;
+    line-height: 18.77px;
+    color: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

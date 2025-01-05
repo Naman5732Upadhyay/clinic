@@ -1,0 +1,56 @@
+<div class="box-outer h-100" *ngIf="selectedDoc">
+    <div class="b-bottom d-flex p-3">
+        <img [src]="selectedDoc?.image_url ? selectedDoc?.image_url : '../../../assets/icons/User-60.svg' " class="profile-pic" alt="'noIng'">
+        <div class="px-2">
+          <div class="docname">{{selectedDoc.name}}</div>
+          <div class="docqualification">{{selectedDoc.qualification}}</div>
+          <div class="docdescription">{{selectedDoc.description}}</div>
+
+        </div>
+    </div>
+    
+    <div class="b-bottom d-flex flex-column p-3" >
+      <div style="flex: 1;margin-bottom: 20px;">
+        <div style="margin-bottom: 20px;">Morning</div>
+        <div class="gridstyles">
+            <div *ngFor="let itemM of morning" (click)="selectSlot(itemM,'M')" class="pill" 
+             [ngStyle]="{
+              'background-color': itemM.is_occupied ? 'var(--bg-light)' : (itemM.is_selected ? 'var(--bg-darkBlue)' : ''),
+              'color': itemM.is_occupied ? '#A9A9A9' : (itemM.is_selected ? 'white' : '')
+              }" 
+            >{{itemM?.time}}</div>
+        </div>
+      </div>
+      <div style="flex: 1;margin-bottom: 20px;">
+        <div style="margin-bottom: 20px;">Afternoon</div>
+
+        <div class="gridstyles">
+            <div *ngFor="let itemA of afternoon" (click)="selectSlot(itemA,'A')" class="pill"
+              [ngStyle]="{
+                'background-color': itemA.is_occupied ? '#FFFFFF' : (itemA.is_selected ? 'var(--bg-darkBlue)' : ''),
+                'color': itemA.is_occupied ? '#A9A9A9' : (itemA.is_selected ? 'white' : '')
+               }" 
+            >{{itemA?.time}}</div>
+        </div>
+      </div>
+      <div style="flex: 1;">
+        <div style="margin-bottom: 20px;">Evening</div>
+        <div class="gridstyles">
+          <div *ngFor="let itemE of evening" (click)="selectSlot(itemE,'E')" class="pill" 
+            [ngStyle]="{
+              'background-color': itemE.is_occupied ? '#FFFFFF' : (itemE.is_selected ? 'var(--bg-darkBlue)' : ''),
+              'color': itemE.is_occupied ? '#A9A9A9' : (itemE.is_selected ? 'white' : '')
+            }" 
+          >{{itemE?.time}}</div>
+      </div>
+      </div>
+
+    </div>
+    
+    <div class="d-flex align-items-center justify-content-center" style="height:50px ;" >
+      <div><button class="btn btn-primary" [ngClass]="!selectedSlot ? 'disabled' : '' " (click)="bookApointment()">Book Appointment</button></div>
+    </div>
+</div>
+<div class="box-outer h-100 d-flex justify-content-center align-items-center" *ngIf="!selectedDoc">
+    <div class="text-nofound">Please select a doctor to book an appointment.</div>
+</div>
