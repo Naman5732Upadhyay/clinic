@@ -10,19 +10,15 @@
                     <div class="fill-one">
                         <div>Doctor name</div>
                         <input type="text" class="w-100" formControlName="name">
-                        <ng-container>
-                            <small *ngIf="doctorForm.get('name')?.invalid && doctorForm.get('name')?.touched">Name is
+                            <small *ngIf="hasError('name', 'required')">Name is
                                 required</small>
-                        </ng-container>
                     </div>
                     <div class="fill-one">
                         <div>Qualification</div>
                         <input type="text" class="w-100" formControlName="qualification">
-                        <ng-container>
                             <small
-                                *ngIf="doctorForm.get('qualification')?.invalid && doctorForm.get('qualification')?.touched">Qualification
+                            *ngIf="hasError('qualification', 'required')">Qualification
                                 is required</small>
-                        </ng-container>
                     </div>
                 </div>
                 <div class="fill-one p-2">
@@ -32,15 +28,14 @@
                 <div class="p-2">
                     <div>Description</div>
                     <textarea class="w-100" formControlName="description"></textarea>
-                    <ng-container>
                         <small
-                            *ngIf="doctorForm.get('description')?.invalid && doctorForm.get('description')?.touched">Description
+                        *ngIf="hasError('description', 'required')">Description
                             is required</small>
-                    </ng-container>
                 </div>
             </div>
 
-            <div class="modal-footer"><button class="btn btn-primary create-btn" type="submit">Create Doctor</button>
+            <div class="modal-footer">
+                <button class="btn btn-primary create-btn" type="submit">Create Doctor</button>
             </div>
         </form>
     </div>

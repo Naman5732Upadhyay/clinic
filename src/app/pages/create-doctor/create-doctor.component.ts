@@ -8,16 +8,15 @@ import { FormControl, FormGroup, UntypedFormGroup, Validators } from '@angular/f
   styleUrl: './create-doctor.component.scss'
 })
 export class CreateDoctorComponent implements OnInit {
-  doctorForm: UntypedFormGroup;
-  @Output() closeModal = new EventEmitter();
-  @Output() createnewDoctor = new EventEmitter<Doctor>();
-  constructor(private cd:ChangeDetectorRef){
-    this.doctorForm = new FormGroup({
+  doctorForm = new FormGroup({
       name: new FormControl('',Validators.required),
       qualification:new FormControl('',Validators.required),
       image_url: new FormControl('',[]),
       description:new FormControl('',Validators.required),
-    })
+    });
+  @Output() closeModal = new EventEmitter();
+  @Output() createnewDoctor = new EventEmitter<Doctor>();
+  constructor(private cd:ChangeDetectorRef){
   }
 
   ngOnInit(): void {
@@ -25,11 +24,16 @@ export class CreateDoctorComponent implements OnInit {
 
   createDoctor(){
     if(this.doctorForm.invalid){
-      this.markAllAsTouched();
-    }else {
-      const newDoc:Doctor = this.doctorForm.value;
-      this.createnewDoctor.emit(newDoc)
+      this.doctorForm.markAllAsTouched();
+      return;
     }
+      const newDoc:any = this.doctorForm.value;
+      this.createnewDoctor.emit(newDoc)
+  }
+
+  hasError(controlName: string, error: string) {
+    const control = this.doctorForm.get(controlName);
+    return control?.touched && control?.hasError(error);
   }
 
   markAllAsTouched(): void {
