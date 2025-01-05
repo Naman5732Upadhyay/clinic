@@ -11,8 +11,10 @@ export class AppComponent {
   selectedDoc:Doctor|undefined;
   showNotification:boolean=false;
   selectedSlot:Slot|undefined;
+  hideforsmallshowDoctorList=true;
   docSelected(doc:Doctor){
       this.selectedDoc = doc;
+      this.hideforsmallshowDoctorList=true;
   }
   showBookAppointmentDiv(slot:Slot) {
     this.selectedSlot = slot;

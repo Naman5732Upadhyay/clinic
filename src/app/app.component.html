@@ -8,9 +8,12 @@
      <div> Appointment for {{selectedDoc?.name}}, {{selectedSlot?.time}}, has been created successfully! </div>
     </div>
   </div>
+  <div class="toggleListwith d-block d-sm-none"  (click)=" hideforsmallshowDoctorList = !hideforsmallshowDoctorList">
+    <div style="float: left;margin-left: 5px;">Doctors List </div> <div style="float: right;margin-right: 5px;"><span *ngIf="!hideforsmallshowDoctorList">&#8593;</span><span *ngIf="hideforsmallshowDoctorList">&#8595;</span></div>
+  </div>
   <div class="d-flex pb-1" style="flex: 1;">
-    <div class="ps-0 pe-2 h-100" style="flex: 1;">
-      <app-doctor-list (selectedDoctor)="docSelected($event)"></app-doctor-list>
+    <div class="ps-0 pe-2 h-100" style="flex: 1;" [ngClass]="hideforsmallshowDoctorList ? 'd-none d-sm-block': '' ">
+      <app-doctor-list  (selectedDoctor)="docSelected($event)"></app-doctor-list>
     </div>
     <div class="col-8 p-0 h-100" style="flex: 3;">
       <app-appt-slots [selectedDoc]="selectedDoc" (bookSlotemitter)="showBookAppointmentDiv($event)"></app-appt-slots>
