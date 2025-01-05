@@ -32,6 +32,9 @@ export class DoctorListComponent implements OnInit {
   createDoctor(newDoc:Doctor){
     newDoc.id = this.doctorList.length+2;
     this.doctorList.push(newDoc);
+    if(this.doctorList.length ===1){
+      this.selcectDoctor(this.doctorList[0]);
+    }
     this.modalService.dismissAll();
   }
 
