@@ -36,15 +36,6 @@ export class CreateDoctorComponent implements OnInit {
     return control?.touched && control?.hasError(error);
   }
 
-  markAllAsTouched(): void {
-    Object.values(this.doctorForm.controls).forEach(control => {
-      if(control.invalid){
-      control.markAsTouched();
-      control.markAsDirty();
-      }
-    });
-  }
-
   closepoppup(){
     this.doctorForm.reset();
     this.closeModal.emit();
