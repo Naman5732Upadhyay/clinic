@@ -4,8 +4,8 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'kelvinToCelsius',
 })
 export class KelvinToCelsiusPipe implements PipeTransform {
-  transform(value: number): string {
-    if (isNaN(value) || value < 0) {
+  transform(value: number|undefined): string {
+    if (!value || isNaN(value) || value < 0) {
       return 'Invalid temperature';
     }
     const celsius = value - 273.15;

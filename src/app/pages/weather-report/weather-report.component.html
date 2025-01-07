@@ -1,5 +1,5 @@
-<div class="weather-btn" style="cursor: pointer;" (click)="openModal(weatherdetails)">
-  {{currentWeatherData?.name}} , {{currentWeatherData?.main?.temp_max | kelvinToCelsius}}
+<div class="weather-btn" *ngIf="currentWeatherData" style="cursor: pointer;" (click)="openModal(weatherdetails)">
+  {{currentWeatherData?.name}} , {{currentWeatherData?.temp_max | kelvinToCelsius}}
 </div>
 <ng-template #weatherdetails>
   <div class="box-outer">

@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { WeatherReportService } from './weather-report.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { currentWeatherData, Weather } from '../../modals/weather.modal';
 
 @Component({
   selector: 'app-weather-report',
@@ -8,8 +9,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './weather-report.component.scss'
 })
 export class WeatherReportComponent implements OnInit {
-  currentWeatherData:any;
-  hourleyForcast:any;
+  currentWeatherData:currentWeatherData|undefined;
+  hourleyForcast:Weather[]|undefined;
   constructor(private weatherservice:WeatherReportService,private modalService:NgbModal){
     
   }
@@ -20,11 +21,8 @@ export class WeatherReportComponent implements OnInit {
   }
 
   openModal(templateref:TemplateRef<HTMLElement>){
-    this.weatherservice.gethourlyForcast(28.57,77.32).subscribe(resp=>{
+    this.weatherservice.gethourlyForcast().subscribe(resp=>{
       this.hourleyForcast = resp;
-      // this.hourleyForcast.forEach((item:any)=>{
-      //      item.date = new Date(item.date_epoch)
-      // })
     });
     this.modalService.open(templateref,{size : 'lg'});
   }
