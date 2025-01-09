@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 })
 export class ApptSlotsComponent implements OnInit,OnChanges,OnDestroy {
  @Input() selectedDoc:Doctor|undefined;
+ @Input() newSlot:{slot:Slot,section:string}|undefined;
+ @Input() deletedSlot:{slot:Slot,section:string}|undefined;
  @Output() bookSlotemitter = new EventEmitter<Slot>();
  morning:Slot[]=[];
  evening:Slot[]=[];
@@ -28,6 +30,38 @@ export class ApptSlotsComponent implements OnInit,OnChanges,OnDestroy {
       this.evening.forEach(item => item.is_selected = false);
       this.afternoon.forEach(item => item.is_selected = false);
     };
+    if(this.newSlot){
+         switch (this.newSlot.section.toLocaleLowerCase()){
+          case 'morning':
+            this.morning.push(this.newSlot.slot);
+          break;
+
+          case 'afternoon':
+            this.afternoon.push(this.newSlot.slot);
+          break;
+
+          case 'evening':
+            this.evening.push(this.newSlot.slot);
+          break;
+
+         }
+    }
+    if(this.deletedSlot){
+      switch (this.deletedSlot.section.toLocaleLowerCase()){
+       case 'morning':
+        this.morning = this.morning.filter(item=>item.time !== this.deletedSlot?.slot.time);
+        break;
+
+       case 'afternoon':
+        this.afternoon = this.afternoon.filter(item=>item.time !== this.deletedSlot?.slot.time);
+        break;
+
+       case 'evening':
+        this.evening = this.evening.filter(item=>item.time !== this.deletedSlot?.slot.time);
+        break;
+
+      }
+ }
   }
 
   ngOnInit(): void {

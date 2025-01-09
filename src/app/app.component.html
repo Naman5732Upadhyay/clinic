@@ -13,10 +13,10 @@
   </div>
   <div class="d-flex pb-1" style="flex: 1;">
     <div class="ps-0 pe-2 h-100" style="flex: 1;" [ngClass]="hideforsmallshowDoctorList ? 'd-none d-sm-block': '' ">
-      <app-doctor-list  (selectedDoctor)="docSelected($event)"></app-doctor-list>
+      <app-doctor-list (addnewSlotEmitter)="addnewSlot($event)" (deleteSlotEmitter)="deleteSlot($event)"  (selectedDoctor)="docSelected($event)"></app-doctor-list>
     </div>
     <div class="col-8 p-0 h-100" style="flex: 3;">
-      <app-appt-slots [selectedDoc]="selectedDoc" (bookSlotemitter)="showBookAppointmentDiv($event)"></app-appt-slots>
+      <app-appt-slots [selectedDoc]="selectedDoc" [deletedSlot]="deletedSlot" [newSlot]="newSlot" (bookSlotemitter)="showBookAppointmentDiv($event)"></app-appt-slots>
     </div>
   </div>
 </div>

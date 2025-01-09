@@ -19,7 +19,7 @@ import { KelvinToCelsiusPipe } from "./utils/kelvintoCelsius";
         DateTimerComponent,
         WeatherReportComponent,
         CreateDoctorComponent,
-        KelvinToCelsiusPipe
+        KelvinToCelsiusPipe,
     ],
     imports:[RouterOutlet,BrowserModule,HttpClientModule,FormsModule,ReactiveFormsModule],
     providers:[],
