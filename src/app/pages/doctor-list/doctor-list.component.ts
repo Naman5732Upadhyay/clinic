@@ -65,6 +65,10 @@ export class DoctorListComponent implements OnInit {
     }
   }
   openaddnewSlotpoppup(templateref:TemplateRef<HTMLElement>){
+    this.morning.forEach(item => item.is_selected = false);
+    this.evening.forEach(item => item.is_selected = false);
+    this.afternoon.forEach(item => item.is_selected = false);
+    this.selectedDocindex=null;
     this.selectedDoctor.emit(undefined);
       this.modalService.open(templateref,{size : 'lg'});
   }

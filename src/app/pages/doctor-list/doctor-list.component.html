@@ -6,7 +6,7 @@
      </div>
    </div>
    <div class="list-container" *ngIf="doctorList && doctorList.length > 0">
-        <div *ngFor="let doctor of doctorList;let i=index" class="b-bottom d-flex justify-content-between" [ngStyle]="(selectedDocindex !== undefined || selectedDocindex !== null) && selectedDocindex === doctor.id ? { 'background-color': 'var(--bg-darkBlue)' } : { 'background-color': '' }" (click)="selcectDoctor(doctor)">
+        <div *ngFor="let doctor of doctorList;let i=index" class="b-bottom d-flex justify-content-between" [ngStyle]="(selectedDocindex !== undefined || selectedDocindex !== null) && selectedDocindex === doctor.id ? { 'background-color': 'var(--bg-darkBlue)','color': 'white' } : { 'background-color': '' }" (click)="selcectDoctor(doctor)">
             <div >{{doctor?.name}}</div>
             <div class="text-end" (click)="deleteDoc(doctor)">
                 <img 
@@ -69,8 +69,8 @@
               <div class="gridstyles">
                   <div *ngFor="let itemM of morning" (click)="selectSlot(itemM,'M')" class="pill" 
                    [ngStyle]="{
-                    'background-color': itemM.is_occupied ? 'var(--bg-light)' : (itemM.is_selected ? 'var(--bg-darkBlue)' : ''),
-                    'color': itemM.is_occupied ? '#A9A9A9' : (itemM.is_selected ? 'white' : '')
+                    'background-color': (itemM.is_selected ? 'var(--bg-darkBlue)' : ''),
+                    'color':  (itemM.is_selected ? 'white' : '')
                     }" 
                   >{{itemM?.time}}</div>
               </div>
@@ -81,8 +81,8 @@
               <div class="gridstyles">
                   <div *ngFor="let itemA of afternoon" (click)="selectSlot(itemA,'A')" class="pill"
                     [ngStyle]="{
-                      'background-color': itemA.is_occupied ? '#FFFFFF' : (itemA.is_selected ? 'var(--bg-darkBlue)' : ''),
-                      'color': itemA.is_occupied ? '#A9A9A9' : (itemA.is_selected ? 'white' : '')
+                      'background-color': (itemA.is_selected ? 'var(--bg-darkBlue)' : ''),
+                      'color': (itemA.is_selected ? 'white' : '')
                      }" 
                   >{{itemA?.time}}</div>
               </div>
@@ -92,8 +92,8 @@
               <div class="gridstyles">
                 <div *ngFor="let itemE of evening" (click)="selectSlot(itemE,'E')" class="pill" 
                   [ngStyle]="{
-                    'background-color': itemE.is_occupied ? '#FFFFFF' : (itemE.is_selected ? 'var(--bg-darkBlue)' : ''),
-                    'color': itemE.is_occupied ? '#A9A9A9' : (itemE.is_selected ? 'white' : '')
+                    'background-color':  (itemE.is_selected ? 'var(--bg-darkBlue)' : ''),
+                    'color':  (itemE.is_selected ? 'white' : '')
                   }" 
                 >{{itemE?.time}}</div>
             </div>
